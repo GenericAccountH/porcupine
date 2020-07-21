@@ -113,6 +113,7 @@ class PorcupineDemo(Thread):
                     self._recorded_frames.append(pcm)
 
                 result = porcupine.process(pcm)
+                print("Helo")
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                 elif num_keywords > 1 and result >= 0:
