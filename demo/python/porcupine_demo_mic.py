@@ -116,13 +116,17 @@ class PorcupineDemo(Thread):
                 print("Helo")
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
-                    os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
+                    
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
+                    
 
         except KeyboardInterrupt:
             print('stopping ...')
         finally:
+            
+            os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
+            
             if porcupine is not None:
                 porcupine.delete()
 
