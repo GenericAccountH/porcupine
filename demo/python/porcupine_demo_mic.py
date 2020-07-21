@@ -125,8 +125,6 @@ class PorcupineDemo(Thread):
             print('stopping ...')
         finally:
             
-            os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
-            
             if porcupine is not None:
                 porcupine.delete()
 
