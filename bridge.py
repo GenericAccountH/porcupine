@@ -8,7 +8,7 @@ import wave
 import webrtcvad
 from halo import Halo
 from scipy import signal
-from subprocess import Popen, PIPE
+#from subprocess import Popen, PIPE
 #TS_on = GPIO....
 callsign = False
 counter = 2
