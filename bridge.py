@@ -9,7 +9,7 @@ import webrtcvad
 from halo import Halo
 from scipy import signal
 
-import subprocess
+from subprocess import run
 import tempfile
 
 
