@@ -8,15 +8,22 @@ import wave
 import webrtcvad
 from halo import Halo
 from scipy import signal
-#from subprocess import Popen, PIPE
-#TS_on = GPIO....
+
+import subprocess
+import tempfile
+
+
 callsign = False
 counter = 2
 i = 0
 
 os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
-#     pipe = Popen("pwd", shell=True, stdout=PIPE).stdout
-#     output = pipe.read()
+print()
+with tempfile.TemporaryFile() as tempf:
+    proc = subprocess.Popen(['echo', 'a', 'b'], stdout=tempf)
+    proc.wait()
+    tempf.seek(0)
+    print tempf.read()
 
     #read output, call voice detection from here
 #logic should be placed here 
