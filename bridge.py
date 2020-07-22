@@ -18,13 +18,9 @@ counter = 2
 i = 0
 
 os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
-print()
-with tempfile.TemporaryFile() as tempf:
-    proc = subprocess.Popen(['echo', 'a', 'b'], stdout=tempf)
-    proc.wait()
-    tempf.seek(0)
-    s = tempf.read()
-    print(s)
+cmd = [ 'echo', 'arg1', 'arg2' ]
+output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
+print output
 
     #read output, call voice detection from here
 #logic should be placed here 
