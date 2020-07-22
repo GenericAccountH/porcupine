@@ -17,7 +17,7 @@ callsign = False
 counter = 2
 i = 0
 
-os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')>outputfile
+os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')>outputfile.py
 
     #read output, call voice detection from here
 #logic should be placed here 
