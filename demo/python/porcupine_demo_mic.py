@@ -126,7 +126,7 @@ class PorcupineDemo(Thread):
         except KeyboardInterrupt:
             print('stopping ...')
         finally:
-            
+            os.system('python3 /home/pi/github/porcupine/bridge.py')
             if porcupine is not None:
                 porcupine.delete()
 
