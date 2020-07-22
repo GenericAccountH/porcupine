@@ -20,7 +20,7 @@ i = 0
 os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
 cmd = [ 'echo', 'arg1', 'arg2' ]
 output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
-print output
+print(output)
 
     #read output, call voice detection from here
 #logic should be placed here 
