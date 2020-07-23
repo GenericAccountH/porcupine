@@ -26,8 +26,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../resources/util/py
 from porcupine import Porcupine
 from util import *
 
-output_val = 7
+output_val = 2
 
+def output_function(output_value):
+    global output_val
+    output_val = output_value
+    return output_val
 
 class PorcupineDemo(Thread):
     """
@@ -119,8 +123,7 @@ class PorcupineDemo(Thread):
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     print('The following is output:')
-                    output_val = 10
-                    return output_val
+                    output_function(20)
                     #sys.exit()
                     
                 elif num_keywords > 1 and result >= 0:
