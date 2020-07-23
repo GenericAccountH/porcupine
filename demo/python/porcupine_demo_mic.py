@@ -82,6 +82,7 @@ class PorcupineDemo(Thread):
          wake word.
          """
         global output_val
+        output_val = 10
         num_keywords = len(self._keyword_file_paths)
 
         keyword_names = list()
@@ -126,12 +127,13 @@ class PorcupineDemo(Thread):
                     #output_val = 10
                     #return output_val
                     #sys.exit()
+                    return output_val
                     break
                     
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
                     
-            print("The following is output:")
+            #print("The following is output:")
             return output_val    
 
         except KeyboardInterrupt:
@@ -211,7 +213,7 @@ def main():
         else:
             sensitivities = [float(x) for x in args.sensitivities.split(',')]
 
-        PorcupineDemo(
+        return PorcupineDemo(
             library_path=args.library_path,
             model_file_path=args.model_file_path,
             keyword_file_paths=keyword_file_paths,
