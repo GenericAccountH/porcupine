@@ -122,14 +122,17 @@ class PorcupineDemo(Thread):
                 #print("Helo")
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
-                    print("The following is output:")
-                    output_val = 10
-                    return output_val
+                    #print("The following is output:")
+                    #output_val = 10
+                    #return output_val
                     #sys.exit()
+                    break
                     
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
                     
+            print("The following is output:")
+            return output_val    
 
         except KeyboardInterrupt:
             print('stopping ...')
