@@ -24,7 +24,7 @@ while(True):
     #animal = os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     #print(animal)
     
-    process = subprocess.Popen(["'python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn'"], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn"], stdout=subprocess.PIPE)
     result = process.communicate()[0]
     print(result)
     
