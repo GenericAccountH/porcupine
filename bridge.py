@@ -31,6 +31,7 @@ while(True):
     
     output = new_stdout.getvalue()
     sys.stdout = old_stdout
+    print("output:")
     print(output)
     
     os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
