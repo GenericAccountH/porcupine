@@ -22,8 +22,9 @@ while(True):
     animal = os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     print(animal)
 
-    proc=subprocess.Popen('echo "to stdout"', shell=True, stdout=subprocess.PIPE, )
+    proc=subprocess.Popen('echo "to stdout"', shell=True, stdout=subprocess.PIPE, ) #b 'to stdout\n'
     output=proc.communicate()[0]
+    print("output:")
     print(output)
     
     os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
