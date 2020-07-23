@@ -26,7 +26,9 @@ while(True):
     print("lobster")
     
     old_stdout = sys.stdout
+    print(old_stdout)
     new_stdout = io.StringIO()
+    print(new_stdout)
     sys.stdout = new_stdout
     
     output = new_stdout.getvalue()
