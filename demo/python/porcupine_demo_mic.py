@@ -123,7 +123,8 @@ class PorcupineDemo(Thread):
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     print("The following is output:")
-                    return output_function(20)
+                    output_val = 10
+                    return output_val
                     #sys.exit()
                     
                 elif num_keywords > 1 and result >= 0:
