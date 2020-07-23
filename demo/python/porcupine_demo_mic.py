@@ -26,7 +26,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../resources/util/py
 from porcupine import Porcupine
 from util import *
 
-int output_val
+output_val = 7
 
 
 class PorcupineDemo(Thread):
