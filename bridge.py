@@ -28,7 +28,7 @@ while(True):
     old_stdout = sys.stdout
     print(old_stdout)
     new_stdout = io.StringIO()
-    print(new_stdout)
+    print(new_stdout.getvalue())
     sys.stdout = new_stdout
     
     output = new_stdout.getvalue()
