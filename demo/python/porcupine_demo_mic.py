@@ -123,12 +123,14 @@ class PorcupineDemo(Thread):
                 #print("Helo")
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
-                    #print("The following is output:")
+                    print("Capture this")
+                    print("Capture this")
+                    print("Capture this")
                     #output_val = 10
                     #return output_val
                     #sys.exit()
-                    return output_val
-                    break
+                    #return output_val
+                    #break
                     
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
@@ -213,7 +215,7 @@ def main():
         else:
             sensitivities = [float(x) for x in args.sensitivities.split(',')]
 
-        return PorcupineDemo(
+        PorcupineDemo(
             library_path=args.library_path,
             model_file_path=args.model_file_path,
             keyword_file_paths=keyword_file_paths,
