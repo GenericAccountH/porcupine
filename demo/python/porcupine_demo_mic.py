@@ -26,6 +26,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../resources/util/py
 from porcupine import Porcupine
 from util import *
 
+int output_val
+
 
 class PorcupineDemo(Thread):
     """
@@ -75,7 +77,7 @@ class PorcupineDemo(Thread):
          stream for occurrences of the wake word(s). It prints the time of detection for each occurrence and index of
          wake word.
          """
-
+        global output_val
         num_keywords = len(self._keyword_file_paths)
 
         keyword_names = list()
@@ -117,7 +119,8 @@ class PorcupineDemo(Thread):
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     print('The following is output:')
-                    return(1)
+                    output_val = 10
+                    return output_val
                     #sys.exit()
                     
                 elif num_keywords > 1 and result >= 0:
