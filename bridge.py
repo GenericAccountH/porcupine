@@ -23,17 +23,15 @@ i = 0
 while(True):
     animal = os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     print(animal)
-    print("lobster")
     
     old_stdout = sys.stdout
-    print(old_stdout)
     new_stdout = io.StringIO()
-    print(new_stdout.getvalue())
     sys.stdout = new_stdout
+    
+    print("lobster")
     
     output = new_stdout.getvalue()
     sys.stdout = old_stdout
-    print("output:")
     print(output)
     
     os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
