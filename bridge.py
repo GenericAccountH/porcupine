@@ -30,7 +30,7 @@ while(True):
     
     print("Output of read by line function:")
     lines = file1.readlines()
-    print(lines[2])
+    print(lines[0])
 #     ou = os.popen('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn').read()
 #     ou.close()
 #     print(ou)
