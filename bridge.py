@@ -27,6 +27,9 @@ while(True):
     file1 = open('out.txt','r+')
     print("Output of read function:")
     print(file1.read())
+    
+    print("Output of read by line function:")
+    print(file1.readline([0])
 #     ou = os.popen('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn').read()
 #     ou.close()
 #     print(ou)
