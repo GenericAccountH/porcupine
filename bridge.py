@@ -19,6 +19,8 @@ import tempfile
 callsign = False
 counter = 2
 i = 0
+targettext = "line 1"
+sourcetext = ""
 
 while(True):
     animal = os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
@@ -31,6 +33,12 @@ while(True):
     print("Output of read by line function:")
     lines = file1.readlines()
     print(lines[0])
+    sourcetext = lines[0]
+    if(targettext in sourcetext):
+        print(True)
+    else:
+        print(False)
+    
 #     ou = os.popen('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn').read()
 #     ou.close()
 #     print(ou)
