@@ -130,7 +130,7 @@ class PorcupineDemo(Thread):
                     sys.stdout.close()
                     #output_val = 10
                     #return output_val
-                    #sys.exit()
+                    sys.exit()
                     #return output_val
                     #break
                     
