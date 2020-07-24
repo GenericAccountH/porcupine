@@ -23,6 +23,10 @@ i = 0
 while(True):
     animal = os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     print(animal)
+    
+    file1 = open('out.txt','r+')
+    print("Output of read function:")
+    print(file1.read())
 #     ou = os.popen('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn').read()
 #     ou.close()
 #     print(ou)
