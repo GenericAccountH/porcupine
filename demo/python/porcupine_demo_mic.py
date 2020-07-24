@@ -124,9 +124,9 @@ class PorcupineDemo(Thread):
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     sys.stdout = open('/home/pi/github/porcupine/out.txt', 'w')
-                    println("Capture this - line 1")
-                    println("Capture this - line 2")
-                    println("Capture this - line 3")
+                    print("Capture this - line 1")
+                    print("Capture this - line 2")
+                    print("Capture this - line 3")
                     sys.stdout.close()
                     #output_val = 10
                     #return output_val
