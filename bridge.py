@@ -29,7 +29,9 @@ while(True):
     print(file1.read())
     
     print("Output of read by line function:")
-    print(file1.readline(10))
+    for i, line in enumerate(file1):
+        if(i == 1):
+            print line
 #     ou = os.popen('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn').read()
 #     ou.close()
 #     print(ou)
