@@ -25,8 +25,8 @@ while(True):
     print(animal)
     
     file1 = open('out.txt','r+')
-    print("Output of read function:")
-    print(file1.read())
+#     print("Output of read function:")
+#     print(file1.read())
     
     print("Output of read by line function:")
     lines = file1.readlines()
