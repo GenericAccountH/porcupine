@@ -16,7 +16,7 @@ V_on = False
 command = False
 isClear = False
 
-targettext = "line 1"
+targettext = "TS_on false"
 sourcetext = ""
 
 while(True):
@@ -26,6 +26,7 @@ while(True):
     print("Output of read by line function:")
     lines = file1.readlines()
     print(lines[0])
+    print(lines[1])
     sourcetext = lines[0]
     if(targettext in sourcetext):
         print(True)
