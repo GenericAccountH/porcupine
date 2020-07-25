@@ -28,7 +28,7 @@ from porcupine import Porcupine
 from util import *
 
 TS_on = False # Make this line 1 of input, initially False
-touchclear = False # Make this line 2 of input, initially False
+touchClear = False # Make this line 2 of input, initially False
 isClear = False #Make this line 3 of input, initially False
 
 plcPin = 17
@@ -165,13 +165,13 @@ class PorcupineDemo(Thread):
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     sys.stdout = open('/home/pi/github/porcupine/out.txt', 'w')
-                    if(TS_on == True and touchclear == True): #print("Capture this - line 1")
+                    if(TS_on == True and touchClear == True): #print("Capture this - line 1")
                         print("TS_on true")
                         print("touchclear true")                        
-                    elif(TS_on == False and touchclear == True):
+                    elif(TS_on == False and touchClear == True):
                         print("TS_on false")
                         print("touchclear true")
-                    elif(TS_on == True and touchclear == False):
+                    elif(TS_on == True and touchClear == False):
                         print("TS_on true")
                         print("touchclear false")
                     else:
