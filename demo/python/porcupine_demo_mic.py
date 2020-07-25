@@ -15,6 +15,7 @@ import struct
 import sys
 from datetime import datetime
 from threading import Thread
+import RPi.GPIO as GPIO
 
 import numpy as np
 import pyaudio
@@ -26,12 +27,21 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../resources/util/py
 from porcupine import Porcupine
 from util import *
 
-output_val = 2
+TS_on = False # Make this line 1 of input, initially False
+touchclear = False # Make this line 2 of input, initially False
+isClear = False #Make this line 3 of input, initially False
 
-def output_function(output_value):
-    global output_val
-    output_val = output_value
-    return output_val
+plcPin = 17
+tsPin = 23
+inPin = 26 #tsPowerPin
+
+GPIO.setmode(GPIO.BCM) #pin names vs CPU defined names
+
+GPIO.setup(inPin,GPIO.IN) #reads "analog" input
+GPIO.setup(plcPin,GPIO.OUT) #17 is PLC output pin
+GPIO.setup(tsPin,GPIO.OUT) #supplies constant high signal for ts circuit
+
+GPIO.output(tsPin,GPIO.HIGH) 
 
 class PorcupineDemo(Thread):
     """
@@ -81,8 +91,8 @@ class PorcupineDemo(Thread):
          stream for occurrences of the wake word(s). It prints the time of detection for each occurrence and index of
          wake word.
          """
-        global output_val
-        output_val = 10
+        #Insert TS_on logic here
+        global TS_on, touchClear, isClear
         num_keywords = len(self._keyword_file_paths)
 
         keyword_names = list()
@@ -121,19 +131,56 @@ class PorcupineDemo(Thread):
 
                 result = porcupine.process(pcm)
                 #print("Helo")
+                #TS side
+                i = GPIO.input(inPin)
+                print("Touch pin:",i)
+	
+                if(i == True and touchClear == False):
+                    TS_on = False
+                    print("Glass opaque")
+                    isClear = False
+	
+                elif(i == True and touchClear == True):
+                    TS_on = False
+                    print("Touching glass opaque")
+                    touchClear = False
+                    isClear = False
+	
+                elif(i == False and touchClear == True):
+                    TS_on = True
+                    print("Glass clear")
+                    isClear = True
+                    
+                elif(i == False and touchClear == False):      
+                    TS_on = True
+                    print("Touching glass clear")
+                    touchClear = True
+                    isClear = True
+                
+                if(isClear == True):
+                    GPIO.output(plcPin,GPIO.HIGH) 
+                else:
+                    GPIO.output(plcPin,GPIO.LOW)
+                
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
                     sys.stdout = open('/home/pi/github/porcupine/out.txt', 'w')
-                    print("Capture this - line 1")
-                    print("Capture this - line 2")
-                    print("Capture this - line 3")
+                    if(TS_on == True and touchclear == True): #print("Capture this - line 1")
+                        print("TS_on true")
+                        print("touchclear true")                        
+                    elif(TS_on == False and touchclear == True):
+                        print("TS_on false")
+                        print("touchclear true")
+                    elif(TS_on == True and touchclear == False):
+                        print("TS_on true")
+                        print("touchclear false")
+                    else:
+                        print("TS_on false")
+                        print("touchclear false")
+                        
                     sys.stdout.close()
-                    #output_val = 10
-                    #return output_val
                     sys.exit()
-                    #return output_val
-                    #break
-                    
+                   
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
                     
