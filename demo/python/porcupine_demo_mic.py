@@ -28,7 +28,7 @@ from porcupine import Porcupine
 from util import *
 
 TS_on = False # Make this line 1 of input, initially False
-touchClear = False # Make this line 2 of input, initially False
+touchClear = False # Make this line 2 of input, initially False. First instance of changed touch state
 isClear = False #Make this line 3 of input, initially False
 
 plcPin = 17
@@ -149,26 +149,26 @@ class PorcupineDemo(Thread):
                 i = GPIO.input(inPin)
                 print("Touch pin:",i)
 	
-                if(i == True and V_on == False):
+                if(i == True and touchClear == False):
                     TS_on = False
                     print("Glass opaque")
                     isClear = False
 	
-                elif(i == True and V_on == True):
+                elif(i == True and touchClear == True):
                     TS_on = False
                     print("Touching glass opaque")
-		    V_on = False
+		    touchClear = False
                     isClear = False
 	
-                elif(i == False and V_on == True):
+                elif(i == False and touchClear == True):
                     TS_on = True
                     print("Glass clear")
                     isClear = True
                     
-                elif(i == False and V_on == False):      
+                elif(i == False and touchClear == False):      
                     TS_on = True
                     print("Touching glass clear")
-                    V_on = True
+                    touchClear = True
                     isClear = True
                 
                 if(isClear == True):
