@@ -149,26 +149,26 @@ class PorcupineDemo(Thread):
                 i = GPIO.input(inPin)
                 print("Touch pin:",i)
 	
-                if(i == True and touchClear == False):
+                if(i == True and V_on == False):
                     TS_on = False
                     print("Glass opaque")
                     isClear = False
 	
-                elif(i == True and touchClear == True):
+                elif(i == True and V_on == True):
                     TS_on = False
                     print("Touching glass opaque")
-                    touchClear = False
+		    V_on = False
                     isClear = False
 	
-                elif(i == False and touchClear == True):
+                elif(i == False and V_on == True):
                     TS_on = True
                     print("Glass clear")
                     isClear = True
                     
-                elif(i == False and touchClear == False):      
+                elif(i == False and V_on == False):      
                     TS_on = True
                     print("Touching glass clear")
-                    touchClear = True
+                    V_on = True
                     isClear = True
                 
                 if(isClear == True):
