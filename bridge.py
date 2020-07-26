@@ -20,6 +20,8 @@ targettext1 = "TS_on false"
 targettext2 = '1'
 sourcetext = ""
 
+os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
+
 while(True):
     os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     
@@ -38,7 +40,7 @@ while(True):
         
     file1.close()
     
-    os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
+    os.system('echo "Yes?" | festival --tts')
  
     os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
     
