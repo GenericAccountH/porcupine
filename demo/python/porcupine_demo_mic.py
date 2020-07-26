@@ -43,6 +43,9 @@ GPIO.setup(tsPin,GPIO.OUT) #supplies constant high signal for ts circuit
 
 GPIO.output(tsPin,GPIO.HIGH) 
 
+initialRead = False
+V_on = False
+
 class PorcupineDemo(Thread):
     """
     Demo class for wake word detection (aka Porcupine) library. It creates an input audio stream from a microphone,
@@ -91,8 +94,19 @@ class PorcupineDemo(Thread):
          stream for occurrences of the wake word(s). It prints the time of detection for each occurrence and index of
          wake word.
          """
+	# Read out.txt for initial state
+        global V_on, TS_on, touchClear, isClear, initialRead
+	if(initialRead == False):
+	    file1 = open('out.txt','r+')
+            lines = file1.readlines()
+            line1 = lines[0]
+            if("False" in line1):
+                V_on = False
+		initialRead = True
+            elif("True" in line1):
+                V_on = True
+		initialRead = True
         #Insert TS_on logic here
-        global TS_on, touchClear, isClear
         num_keywords = len(self._keyword_file_paths)
 
         keyword_names = list()
