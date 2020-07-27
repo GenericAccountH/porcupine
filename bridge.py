@@ -25,19 +25,19 @@ os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
 while(True):
     os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
     
-    file1 = open('out.txt','r+')
-    print("Output of read by line function:")
-    lines = file1.readlines()
-    print(lines[0])
-    sourcetext = lines[0]
-    if(targettext1 in sourcetext):
-        print(True)
-        TS_on = True
-    else:
-        print(False)
-        TS_on = False
+#     file1 = open('out.txt','r+')
+#     print("Output of read by line function:")
+#     lines = file1.readlines()
+#     print(lines[0])
+#     sourcetext = lines[0]
+#     if(targettext1 in sourcetext):
+#         print(True)
+#         TS_on = True
+#     else:
+#         print(False)
+#         TS_on = False
         
-    file1.close()
+#     file1.close()
     
     os.system('echo "Yes?" | festival --tts')
  
