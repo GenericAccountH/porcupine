@@ -46,7 +46,7 @@ while(True):
     
     file2 = open('out.txt','r+')
     lines = file2.readlines()
-    sourcetext = lines[1]
+    sourcetext = lines[0]
     if(targettext2 in sourcetext):
         V_on = True
     else:
