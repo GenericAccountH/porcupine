@@ -96,7 +96,7 @@ class PorcupineDemo(Thread):
          """
 	# Read out.txt for initial state
         global V_on, TS_on, touchClear, isClear, initialRead
-	if(initialRead == False):
+        if(initialRead == False):
 	    file1 = open('out.txt','r+')
             lines = file1.readlines()
             line1 = lines[0]
