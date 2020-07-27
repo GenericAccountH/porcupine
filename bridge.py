@@ -29,7 +29,6 @@ while(True):
     print("Output of read by line function:")
     lines = file1.readlines()
     print(lines[0])
-    print(lines[1])
     sourcetext = lines[0]
     if(targettext1 in sourcetext):
         print(True)
