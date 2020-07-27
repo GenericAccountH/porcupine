@@ -96,16 +96,16 @@ class PorcupineDemo(Thread):
          """
 	# Read out.txt for initial state
         global V_on, TS_on, touchClear, isClear, initialRead
-        if(initialRead == False):
-	    file1 = open('out.txt','r+')
-            lines = file1.readlines()
-            line1 = lines[0]
-            if("False" in line1):
-                V_on = False
-		initialRead = True
-            elif("True" in line1):
-                V_on = True
-		initialRead = True
+#         if(initialRead == False):
+# 	    file1 = open('out.txt','r+')
+#             lines = file1.readlines()
+#             line1 = lines[0]
+#             if("False" in line1):
+#                 V_on = False
+# 		initialRead = True
+#             elif("True" in line1):
+#                 V_on = True
+# 		initialRead = True
         #Insert TS_on logic here
         num_keywords = len(self._keyword_file_paths)
 
