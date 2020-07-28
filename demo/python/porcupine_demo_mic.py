@@ -33,7 +33,7 @@ isClear = False #Make this line 3 of input, initially False
 
 plcPin = 17
 tsPin = 23
-inPin = 26 #tsPowerPin
+inPin = 6 #tsPowerPin
 
 GPIO.setmode(GPIO.BCM) #pin names vs CPU defined names
 
