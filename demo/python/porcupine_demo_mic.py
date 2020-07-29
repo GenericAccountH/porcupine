@@ -173,10 +173,10 @@ class PorcupineDemo(Thread):
                 
                 if(isClear == True):
                     GPIO.output(plcPin,GPIO.HIGH) 
-		    time.sleep(0.25)
+                    time.sleep(0.25)
                 else:
                     GPIO.output(plcPin,GPIO.LOW)
-		    time.sleep(0.25)
+                    time.sleep(0.25)
                 
                 if num_keywords == 1 and result:
                     print('[%s] detected keyword' % str(datetime.now()))
