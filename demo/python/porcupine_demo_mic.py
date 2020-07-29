@@ -20,6 +20,7 @@ import RPi.GPIO as GPIO
 import numpy as np
 import pyaudio
 import soundfile
+import time
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../binding/python'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../resources/util/python'))
