@@ -196,7 +196,7 @@ class PorcupineDemo(Thread):
 #                         print("touchclear false")
                         
 #                     sys.stdout.close()
-                    os._exit()
+                    os._exit(0)
                    
                 elif num_keywords > 1 and result >= 0:
                     print('[%s] detected %s' % (str(datetime.now()), keyword_names[result]))
