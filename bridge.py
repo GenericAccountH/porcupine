@@ -10,11 +10,16 @@ from halo import Halo
 from scipy import signal
 import sys
 import io
+import RPi.GPIO as GPIO
 
 TS_on = False
 V_on = False
 command = False
 isClear = False
+
+ledPin = 1
+GPIO.setmode(GPIO.BCM) 
+GPIO.setup(ledPin,GPIO.OUT) 
 
 targettext1 = "TS_on false"
 targettext2 = '1'
@@ -40,8 +45,9 @@ while(True):
 #     file1.close()
     
     #os.system('echo "Yes?" | festival --tts')
- 
+    GPIO.output(ledPin,HIGH)
     os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
+    GPIO.output(ledPin,LOW)
     
     file2 = open('out.txt','r+')
     lines = file2.readlines()
