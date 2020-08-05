@@ -12,6 +12,7 @@ import sys
 import io
 import RPi.GPIO as GPIO
 import pixel_ring
+import usb.core
 
 TS_on = False
 V_on = False
