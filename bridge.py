@@ -11,6 +11,7 @@ from scipy import signal
 import sys
 import io
 import RPi.GPIO as GPIO
+import pixel_ring
 
 TS_on = False
 V_on = False
