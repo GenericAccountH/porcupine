@@ -39,7 +39,7 @@ GPIO.output(ledPin,GPIO.LOW)
 
 os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
 
-sys.exit()
+#sys.exit()
 
 while(True):
     os.system('python3 /home/pi/github/porcupine/demo/python/porcupine_demo_mic.py --keyword_file_paths /home/pi/github/porcupine/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn')
