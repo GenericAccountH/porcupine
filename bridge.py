@@ -26,6 +26,8 @@ targettext1 = "TS_on false"
 targettext2 = '1'
 sourcetext = ""
 
+pixel_ring.set_volume(12) #0-12
+
 os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
 
 while(True):
