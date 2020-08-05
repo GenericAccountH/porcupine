@@ -11,7 +11,7 @@ from scipy import signal
 import sys
 import io
 import RPi.GPIO as GPIO
-import pixel_ring
+from usb_pixel_ring_v2 import PixelRing
 import usb.core
 
 TS_on = False
@@ -28,7 +28,7 @@ targettext2 = '1'
 sourcetext = ""
 
 dev = usb.core.find(idVendor=0x2886, idProduct=0x0018)
-pix_ring = pixel_ring(dev)
+pix_ring = PixelRing(dev)
 pix_ring.set_volume(12) #0-12
 
 os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
