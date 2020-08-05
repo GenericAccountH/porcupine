@@ -28,6 +28,7 @@ targettext1 = "TS_on false"
 targettext2 = '1'
 sourcetext = ""
 
+time.sleep(30)
 # dev = usb.core.find(idVendor=0x2886, idProduct=0x0018)
 # pix_ring = PixelRing(dev)
 # # pix_ring.set_volume(12) #0-12
