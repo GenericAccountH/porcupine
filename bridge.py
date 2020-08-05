@@ -33,6 +33,9 @@ sourcetext = ""
 # pix_ring = PixelRing(dev)
 # # pix_ring.set_volume(12) #0-12
 # pix_ring.set_volume(10)
+GPIO.output(ledPin,GPIO.HIGH)
+time.sleep(5)
+GPIO.output(ledPin,GPIO.LOW)
 
 os.system('echo "Welcome to Gwen. How may I help you today?" | festival --tts')
 
