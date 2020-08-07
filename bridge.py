@@ -66,14 +66,14 @@ while(True):
     
     GPIO.output(ledPin,GPIO.LOW)
     
-    file2 = open('out.txt','r+')
-    lines = file2.readlines()
-    sourcetext = lines[0]
-    if(targettext2 in sourcetext):
-        V_on = True
-    else:
-        V_on = False
-    file2.close()
+#     file2 = open('out.txt','r+')
+#     lines = file2.readlines()
+#     sourcetext = lines[0]
+#     if(targettext2 in sourcetext):
+#         V_on = True
+#     else:
+#         V_on = False
+#     file2.close()
     
     sys.stdout = open('/home/pi/github/porcupine/out.txt', 'w')
     if(V_on == True):
