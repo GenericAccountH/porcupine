@@ -62,7 +62,7 @@ while(True):
     GPIO.output(ledPin,GPIO.HIGH)
     #os.system('python3 /home/pi/github/speech/mic_vad_streaming/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
     os.system('python3 /home/pi/github/speech/test_speaker.py')
-    os.system('python3 /home/pi/github/porcupine/mic_vad_streaming.py -m output_graph.tflite -l lm.binary -t trie -v 3')
+    os.system('python3 /home/pi/github/porcupine/mic_vad_streaming.py -m /home/pi/github/porcupine/output_graph.tflite -l /home/pi/github/porcupine/lm.binary -t /home/pi/github/porcupine/trie -v 3')
     
     GPIO.output(ledPin,GPIO.LOW)
     
